@@ -10,12 +10,7 @@ public class ExampleActivity extends ProxyActivity {
 
     @Override
     public LatteDelegate setRootDelegate() {
-        return null;
+        return new ExampleDelegate();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
 }
