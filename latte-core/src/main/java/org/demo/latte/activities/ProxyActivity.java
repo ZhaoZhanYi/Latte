@@ -16,6 +16,7 @@ import me.yokeyword.fragmentation.SupportActivity;
 
 public abstract class ProxyActivity extends SupportActivity {
 
+    //设置fragment的抽象方法
     public abstract LatteDelegate setRootDelegate();
 
     @Override
