@@ -38,7 +38,7 @@ public class RestClient {
                       RequestBody body) {
 
         this.URL = URL;
-        params.putAll(params);
+        this.PARAMS.putAll(params);
         this.REQUEST = request;
         this.SUCCESS = success;
         this.FAILURE = failure;
