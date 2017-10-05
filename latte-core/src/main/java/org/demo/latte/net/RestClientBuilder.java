@@ -1,9 +1,12 @@
 package org.demo.latte.net;
 
+import android.content.Context;
+
 import org.demo.latte.net.callback.IError;
 import org.demo.latte.net.callback.IFailure;
 import org.demo.latte.net.callback.IRequest;
 import org.demo.latte.net.callback.ISuccess;
+import org.demo.latte.ui.LoaderStyle;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -30,6 +33,10 @@ public class RestClientBuilder {
     private IError mIError;
 
     private RequestBody mBody;
+
+    private Context mContext;
+
+    private LoaderStyle mLoaderStyle;
 
     RestClientBuilder() {
 
@@ -75,8 +82,14 @@ public class RestClientBuilder {
         return this;
     }
 
+    public RestClientBuilder loader(Context context) {
+        this.mContext = context;
+        this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
+        return this;
+    }
+
     public final RestClient build() {
-        return new RestClient(mUrl, mParams, mIRequest, mISuccess, mIFailure, mIError, mBody);
+        return new RestClient(mUrl, mParams, mIRequest, mISuccess, mIFailure, mIError, mBody, mContext, mLoaderStyle);
     }
 
 }

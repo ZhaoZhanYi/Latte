@@ -1,5 +1,10 @@
 package org.demo.latte.net.callback;
 
+import android.os.Handler;
+
+import org.demo.latte.ui.LatteLoader;
+import org.demo.latte.ui.LoaderStyle;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,11 +22,16 @@ public class RequestCallbacks implements Callback<String> {
 
     private final IError iError;
 
-    public RequestCallbacks(IRequest iRequest, ISuccess iSuccess, IFailure iFailure, IError iError) {
+    private final LoaderStyle loaderStyle;
+
+    private static final Handler HANDLER = new Handler();
+
+    public RequestCallbacks(IRequest iRequest, ISuccess iSuccess, IFailure iFailure, IError iError, LoaderStyle loaderStyle) {
         this.iRequest = iRequest;
         this.iSuccess = iSuccess;
         this.iFailure = iFailure;
         this.iError = iError;
+        this.loaderStyle = loaderStyle;
     }
 
     @Override
@@ -37,6 +47,8 @@ public class RequestCallbacks implements Callback<String> {
                 iError.onError(response.code(), response.message());
             }
         }
+
+        stopLoading();
     }
 
     @Override
@@ -47,6 +59,19 @@ public class RequestCallbacks implements Callback<String> {
 
         if (iRequest != null) {
             iRequest.onRequestEnd();
+        }
+
+        stopLoading();
+    }
+
+    private void stopLoading() {
+        if (loaderStyle != null) {
+            HANDLER.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    LatteLoader.stopLoading();
+                }
+            }, 1000);
         }
     }
 }

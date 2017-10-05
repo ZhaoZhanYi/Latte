@@ -1,10 +1,14 @@
 package org.demo.latte.net;
 
+import android.content.Context;
+
 import org.demo.latte.net.callback.IError;
 import org.demo.latte.net.callback.IFailure;
 import org.demo.latte.net.callback.IRequest;
 import org.demo.latte.net.callback.ISuccess;
 import org.demo.latte.net.callback.RequestCallbacks;
+import org.demo.latte.ui.LatteLoader;
+import org.demo.latte.ui.LoaderStyle;
 
 import java.util.WeakHashMap;
 
@@ -32,13 +36,20 @@ public class RestClient {
 
     private final RequestBody BODY;
 
+    private final LoaderStyle LOADERSTYLE;
+
+    private final Context CONTEXT;
+
     public RestClient(String URL,
                       WeakHashMap<String, Object> params,
                       IRequest request,
                       ISuccess success,
                       IFailure failure,
                       IError error,
-                      RequestBody body) {
+                      RequestBody body,
+                      Context context,
+                      LoaderStyle loaderStyle
+                      ) {
 
         this.URL = URL;
         this.PARAMS.putAll(params);
@@ -47,7 +58,8 @@ public class RestClient {
         this.FAILURE = failure;
         this.ERROR = error;
         this.BODY = body;
-
+        this.CONTEXT = context;
+        this.LOADERSTYLE = loaderStyle;
     }
 
     public static RestClientBuilder builder() {
@@ -57,6 +69,15 @@ public class RestClient {
     private void request(HttpMethod method) {
         final RestService service = RestCreator.getRestService();
         Call<String> call = null;
+
+        if (REQUEST != null) {
+            REQUEST.onRequestStart();
+        }
+
+        if (LOADERSTYLE != null) {
+            LatteLoader.showLoading(CONTEXT, LOADERSTYLE);
+        }
+
         switch (method) {
             case GET:
                 call = service.get(URL, PARAMS);
@@ -85,7 +106,8 @@ public class RestClient {
                 REQUEST,
                 SUCCESS,
                 FAILURE,
-                ERROR
+                ERROR,
+                LOADERSTYLE
         );
     }
 

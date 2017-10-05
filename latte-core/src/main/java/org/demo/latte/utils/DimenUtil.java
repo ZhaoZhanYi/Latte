@@ -1,0 +1,25 @@
+package org.demo.latte.utils;
+
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+
+import org.demo.latte.app.Latte;
+
+/**
+ * Created by zhanyi on 2017/10/5.
+ */
+
+public class DimenUtil {
+
+    public static int getScreenWidth() {
+        final Resources resources = Latte.getApplication().getResources();
+        final DisplayMetrics dm = resources.getDisplayMetrics();
+        return dm.widthPixels;
+    }
+
+    public static int getScreenHeight() {
+        final Resources resources = Latte.getApplication().getResources();
+        final DisplayMetrics dm = resources.getDisplayMetrics();
+        return dm.heightPixels;
+    }
+}

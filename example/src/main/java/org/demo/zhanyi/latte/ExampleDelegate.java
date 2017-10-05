@@ -30,11 +30,12 @@ public class ExampleDelegate extends LatteDelegate {
     public void testResetClient() {
         RestClient.builder()
                 .url("https://www.baidu.com")
+                .loader(getContext())
                 .params("", "")
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-                        Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {
