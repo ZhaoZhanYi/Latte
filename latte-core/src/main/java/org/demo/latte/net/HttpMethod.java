@@ -9,6 +9,7 @@ public enum HttpMethod {
     POST,
     POST_RAM,
     PUT,
+    PUT_RAM,
     DELETE,
     UPLOAD
 }

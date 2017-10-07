@@ -8,6 +8,7 @@ import org.demo.latte.net.callback.IRequest;
 import org.demo.latte.net.callback.ISuccess;
 import org.demo.latte.ui.LoaderStyle;
 
+import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -33,6 +34,8 @@ public class RestClientBuilder {
     private IError mIError;
 
     private RequestBody mBody;
+
+    private File mFile;
 
     private Context mContext;
 
@@ -82,6 +85,16 @@ public class RestClientBuilder {
         return this;
     }
 
+    public RestClientBuilder file(File file) {
+        this.mFile = file;
+        return this;
+    }
+
+    public RestClientBuilder file(String filePath) {
+        this.mFile = new File(filePath);
+        return this;
+    }
+
     public RestClientBuilder loader(Context context) {
         this.mContext = context;
         this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
@@ -89,7 +102,7 @@ public class RestClientBuilder {
     }
 
     public final RestClient build() {
-        return new RestClient(mUrl, mParams, mIRequest, mISuccess, mIFailure, mIError, mBody, mContext, mLoaderStyle);
+        return new RestClient(mUrl, mParams, mIRequest, mISuccess, mIFailure, mIError, mBody, mFile, mContext, mLoaderStyle);
     }
 
 }
