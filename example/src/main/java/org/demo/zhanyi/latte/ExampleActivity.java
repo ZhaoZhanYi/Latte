@@ -10,4 +10,5 @@ public class ExampleActivity extends ProxyActivity {
         return new ExampleDelegate();
     }
 
+
 }
