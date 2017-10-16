@@ -1,7 +1,6 @@
 package org.demo.latte.utils.storage;
 
 import android.content.SharedPreferences;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
 
 import com.alibaba.fastjson.JSON;
