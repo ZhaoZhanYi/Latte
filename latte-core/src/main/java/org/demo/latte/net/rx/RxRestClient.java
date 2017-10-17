@@ -4,12 +4,8 @@ import android.content.Context;
 
 import org.demo.latte.net.HttpMethod;
 import org.demo.latte.net.RestCreator;
-import org.demo.latte.net.callback.IError;
-import org.demo.latte.net.callback.IFailure;
-import org.demo.latte.net.callback.IRequest;
-import org.demo.latte.net.callback.ISuccess;
-import org.demo.latte.ui.LatteLoader;
-import org.demo.latte.ui.LoaderStyle;
+import org.demo.latte.ui.loader.LatteLoader;
+import org.demo.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

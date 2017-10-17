@@ -1,4 +1,4 @@
-package org.demo.latte.ui;
+package org.demo.latte.ui.loader;
 
 import android.content.Context;
 
