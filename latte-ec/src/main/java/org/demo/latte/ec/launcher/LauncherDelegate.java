@@ -9,6 +9,7 @@ import android.widget.Toast;
 import org.demo.latte.delegates.LatteDelegate;
 import org.demo.latte.ec.R;
 import org.demo.latte.ec.R2;
+import org.demo.latte.utils.storage.LattePreference;
 import org.demo.latte.utils.timer.BaseTimerTask;
 import org.demo.latte.utils.timer.ITimerListener;
 
@@ -29,7 +30,13 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView() {
-        Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
+            checkIsShowScroll();
+        }
     }
 
     private int mCount = 5;
@@ -52,6 +59,18 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
         initTimer();
     }
 
+    /**
+     * 检测是否显示引导页面
+     */
+    private void checkIsShowScroll() {
+        if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {
+            //启动一个fragment
+            start(new LauncherScrollDelegate(), SINGLETASK);
+        } else {
+            // 检测用户是否登录App
+        }
+    }
+
     @Override
     public void onTimer() {
         getProxyActivity().runOnUiThread(new Runnable() {
@@ -60,11 +79,14 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
                 if (mTvTimer != null) {
                     mTvTimer.setText(MessageFormat.format(("跳过\n{0}s"), mCount));
                     mCount--;
+
+                    //5 次之后跳转
                     if (mCount < 0) {
                         if (mTimer != null) {
                             mTimer.cancel();
                             mTimer = null;
-                            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
+                            checkIsShowScroll();
                         }
                     }
                 }

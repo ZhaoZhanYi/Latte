@@ -10,6 +10,7 @@ import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import org.demo.latte.delegates.LatteDelegate;
 import org.demo.latte.ec.R;
 import org.demo.latte.ui.launcher.LauncherHolderCreator;
+import org.demo.latte.utils.storage.LattePreference;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,11 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
 
     @Override
     public void onItemClick(int i) {
+        //点击最后一个
+        if (i == INTEGERS.size() - 1) {
+            LattePreference.setAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name(), true);
+            //检测用户是否登录
 
+        }
     }
 }
