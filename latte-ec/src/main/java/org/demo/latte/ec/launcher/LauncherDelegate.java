@@ -9,6 +9,7 @@ import android.widget.Toast;
 import org.demo.latte.delegates.LatteDelegate;
 import org.demo.latte.ec.R;
 import org.demo.latte.ec.R2;
+import org.demo.latte.ec.sign.SignUpDelegate;
 import org.demo.latte.utils.storage.LattePreference;
 import org.demo.latte.utils.timer.BaseTimerTask;
 import org.demo.latte.utils.timer.ITimerListener;
@@ -30,11 +31,9 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView() {
-//        Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
         if (mTimer != null) {
             mTimer.cancel();
             mTimer = null;
-            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
             checkIsShowScroll();
         }
     }
@@ -68,6 +67,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
             start(new LauncherScrollDelegate(), SINGLETASK);
         } else {
             // 检测用户是否登录App
+            start(new SignUpDelegate(), SINGLETASK);
         }
     }
 
