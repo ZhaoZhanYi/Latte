@@ -3,8 +3,6 @@ package org.demo.latte.ec.sign;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -43,6 +41,11 @@ public class SignUpDelegate extends LatteDelegate {
         if (checkForm()) {
             Toast.makeText(getContext(), "验证通过", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @OnClick(R2.id.tv_link_sign_in)
+    void onClickLinkSignIn() {
+        start(new SignInDelegate());
     }
 
     private boolean checkForm() {
