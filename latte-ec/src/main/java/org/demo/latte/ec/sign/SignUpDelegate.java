@@ -11,6 +11,9 @@ import android.widget.Toast;
 import org.demo.latte.delegates.LatteDelegate;
 import org.demo.latte.ec.R;
 import org.demo.latte.ec.R2;
+import org.demo.latte.net.RestClient;
+import org.demo.latte.net.callback.ISuccess;
+import org.demo.latte.utils.log.LatteLogger;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -39,7 +42,25 @@ public class SignUpDelegate extends LatteDelegate {
     @OnClick(R2.id.btn_sign_up)
     void onClickSignUp() {
         if (checkForm()) {
-            Toast.makeText(getContext(), "验证通过", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "验证通过", Toast.LENGTH_SHORT).show();
+            RestClient.builder()
+                    .url("http://127.0.0.1/index")
+                    .params("name", mName.getText().toString())
+                    .params("email", mEmail.getText().toString())
+                    .params("phone", mPhone.getText().toString())
+                    .params("password", mPassword.getText().toString())
+                    .success(new ISuccess() {
+                        @Override
+                        public void onSuccess(String response) {
+//                            Log.i("response: ", response);
+                            Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
+                            LatteLogger.json("user_profile", response);
+                            SignHandler.onSignUp(response);
+                        }
+                    })
+                    .build()
+                    .post();
+
         }
     }
 

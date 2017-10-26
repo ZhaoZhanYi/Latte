@@ -2,9 +2,11 @@ package org.demo.zhanyi.latte;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 import org.demo.latte.app.Latte;
+import org.demo.latte.ec.database.DatabaseManager;
 import org.demo.latte.ec.icon.FontEcModule;
 import org.demo.latte.net.interceptors.DebugInterceptor;
 
@@ -23,5 +25,16 @@ public class ExampleApp extends Application {
                 .withApiHost("http://127.0.0.1")
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .configure();
+        initStetho();
+        DatabaseManager.getInstance().init(this);
+    }
+
+    //app映射到web上的调试工具
+    private void initStetho() {
+        Stetho.initialize(Stetho.newInitializerBuilder(this)
+            .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                .build()
+        );
     }
 }
