@@ -1,4 +1,4 @@
-package com.example;
+package latte.demo.latte;
 
 public class MyClass {
 }

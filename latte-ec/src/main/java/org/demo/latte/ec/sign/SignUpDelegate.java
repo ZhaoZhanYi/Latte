@@ -1,5 +1,6 @@
 package org.demo.latte.ec.sign;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -39,6 +40,21 @@ public class SignUpDelegate extends LatteDelegate {
     @BindView(R2.id.edit_sign_up_re_password)
     TextInputEditText mRePassword = null;
 
+    private ISignListener mISignListener = null;
+
+    /**
+     * 登录和注册是App唯一的一个入口，不需要分散到各个delegate中去处理
+     * @param activity
+     */
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof ISignListener) {
+            mISignListener = (ISignListener) activity;
+        }
+
+    }
+
     @OnClick(R2.id.btn_sign_up)
     void onClickSignUp() {
         if (checkForm()) {
@@ -53,9 +69,9 @@ public class SignUpDelegate extends LatteDelegate {
                         @Override
                         public void onSuccess(String response) {
 //                            Log.i("response: ", response);
-                            Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
                             LatteLogger.json("user_profile", response);
-                            SignHandler.onSignUp(response);
+                            SignHandler.onSignUp(response, mISignListener);
                         }
                     })
                     .build()
