@@ -50,10 +50,10 @@ public class LatteProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-//        final Set<String> types = new LinkedHashSet<>();
-//        final Set<Class<? extends Annotation>> supportAnnotations = getSupportedAnnotations();
-
-        return false;
+        generateEntryCode(roundEnvironment);
+        generatePayEntryCode(roundEnvironment);
+        generateAppRegisterCode(roundEnvironment);
+        return true;
 
     }
 
@@ -75,7 +75,21 @@ public class LatteProcessor extends AbstractProcessor {
     }
 
     private void generateEntryCode(RoundEnvironment env) {
+        EntryVistor entryVistor = new EntryVistor();
+        entryVistor.setFiler(processingEnv.getFiler());
+        scan(env, EntryGenerator.class, entryVistor);
+    }
 
+    private void generatePayEntryCode(RoundEnvironment env) {
+        PayEntryVistor entryVistor = new PayEntryVistor();
+        entryVistor.setFiler(processingEnv.getFiler());
+        scan(env, PayEntryGenerator.class, entryVistor);
+    }
+
+    private void generateAppRegisterCode(RoundEnvironment env) {
+        AppRegisterVistor entryVistor = new AppRegisterVistor();
+        entryVistor.setFiler(processingEnv.getFiler());
+        scan(env, AppRegisterGenerator.class, entryVistor);
     }
 
 
