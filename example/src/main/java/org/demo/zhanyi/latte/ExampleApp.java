@@ -24,6 +24,8 @@ public class ExampleApp extends Application {
                 .withIcon(new FontEcModule())
                 .withApiHost("http://127.0.0.1")
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
+                .withAppId("")
+                .withAppSecret("")
                 .configure();
         initStetho();
         DatabaseManager.getInstance().init(this);
