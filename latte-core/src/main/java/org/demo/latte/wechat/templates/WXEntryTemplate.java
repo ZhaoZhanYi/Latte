@@ -2,14 +2,23 @@ package org.demo.latte.wechat.templates;
 
 import org.demo.latte.activities.ProxyActivity;
 import org.demo.latte.delegates.LatteDelegate;
+import org.demo.latte.wechat.BaseWxEntryActivity;
 
 /**
  * Created by zhanyi on 2017/11/6.
  */
 
-public class WXEntryTemplate extends ProxyActivity {
+public class WXEntryTemplate extends BaseWxEntryActivity {
+
     @Override
-    public LatteDelegate setRootDelegate() {
-        return null;
+    protected void onResume() {
+        super.onResume();
+        finish();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
+    protected void onSignInSuccess(String userInfo) {
+
     }
 }

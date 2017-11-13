@@ -1,5 +1,7 @@
 package org.demo.latte.app;
 
+import android.app.Activity;
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -48,6 +50,21 @@ public class Configurator {
     public final Configurator withInterceptors(ArrayList<Interceptor> interceptors) {
         INTERCEPTORS.addAll(interceptors);
         LATTE_CONFIGS.put(ConfigType.INTERCEPTOR.name(), INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withAppId(String appId) {
+        LATTE_CONFIGS.put(ConfigType.WE_CHAT_APP_ID.name(), appId);
+        return this;
+    }
+
+    public final Configurator withAppSecret(String appSecret) {
+        LATTE_CONFIGS.put(ConfigType.WE_CHAT_APP_SECRET.name(), appSecret);
+        return this;
+    }
+
+    public final Configurator withActivity(Activity activity) {
+        LATTE_CONFIGS.put(ConfigType.ACTIVITY.name(), activity);
         return this;
     }
 

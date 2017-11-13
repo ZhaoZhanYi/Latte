@@ -63,4 +63,6 @@ dependencies {
     compile 'org.greenrobot:greendao:3.2.2'
     //日志库
     compile 'com.orhanobut:logger:2.1.1'
+    //微信
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
 }
