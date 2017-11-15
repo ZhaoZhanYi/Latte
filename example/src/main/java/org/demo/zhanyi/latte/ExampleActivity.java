@@ -10,6 +10,7 @@ import org.demo.latte.app.Latte;
 import org.demo.latte.delegates.LatteDelegate;
 import org.demo.latte.ec.launcher.LauncherDelegate;
 import org.demo.latte.ec.launcher.LauncherScrollDelegate;
+import org.demo.latte.ec.main.EcBottomDelegate;
 import org.demo.latte.ec.sign.ISignListener;
 import org.demo.latte.ec.sign.SignInDelegate;
 import org.demo.latte.ui.launcher.ILauncherListener;
@@ -53,7 +54,7 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "启动结束，用户已登录", Toast.LENGTH_LONG).show();
-                startWithPop(new ExampleDelegate());
+                startWithPop(new EcBottomDelegate());
 
                 break;
 
