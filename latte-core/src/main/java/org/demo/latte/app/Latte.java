@@ -32,4 +32,6 @@ public final class Latte {
          return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
     }
 
+
+
 }

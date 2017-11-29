@@ -1,6 +1,7 @@
 package org.demo.latte.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.ContentFrameLayout;
@@ -15,6 +16,8 @@ import me.yokeyword.fragmentation.SupportActivity;
  */
 
 public abstract class ProxyActivity extends SupportActivity {
+
+    private static final Handler mHandler = new Handler();
 
     //设置fragment的抽象方法
     public abstract LatteDelegate setRootDelegate();
@@ -41,5 +44,9 @@ public abstract class ProxyActivity extends SupportActivity {
         super.onDestroy();
         System.gc();
         System.runFinalization();
+    }
+
+    public static Handler getHandler() {
+        return mHandler;
     }
 }

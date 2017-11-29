@@ -54,7 +54,7 @@ dependencies {
     compile 'com.bigkoo:convenientbanner:2.0.5'
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     //JSON解析
-    compile 'com.alibaba:fastjson:1.2.39'
+    compile 'com.alibaba:fastjson:1.1.57.android'
     //Android Support 包
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
@@ -65,4 +65,6 @@ dependencies {
     compile 'com.orhanobut:logger:2.1.1'
     //微信
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    //recycleView 依赖
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:+'
 }

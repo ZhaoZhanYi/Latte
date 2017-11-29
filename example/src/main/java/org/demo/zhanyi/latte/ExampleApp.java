@@ -1,6 +1,7 @@
 package org.demo.zhanyi.latte;
 
 import android.app.Application;
+import android.os.Handler;
 
 import com.facebook.stetho.Stetho;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
@@ -15,6 +16,8 @@ import org.demo.latte.net.interceptors.DebugInterceptor;
  */
 
 public class ExampleApp extends Application {
+
+    private static final Handler mHandler = new Handler();
 
     @Override
     public void onCreate() {
