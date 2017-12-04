@@ -1,0 +1,17 @@
+{
+  "data": {
+    "imageUrl": "http://image.png",
+    "text": "I Love You",
+    "spanSize": "2",
+    "goodsId": "520",
+    "banners": [
+      "http://1.png",
+      "http://2.png",
+      "http://3.png"
+    ]
+
+
+  }
+
+
+}

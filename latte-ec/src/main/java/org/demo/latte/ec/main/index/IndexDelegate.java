@@ -32,8 +32,8 @@ public class IndexDelegate extends BottomItemDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         initRefreshLayout();
-        new RefreshHandler(mRefreshLayout);
-
+        RefreshHandler refreshHandler = new RefreshHandler(mRefreshLayout);
+        refreshHandler.onRefresh();
     }
 
     private void initRefreshLayout() {

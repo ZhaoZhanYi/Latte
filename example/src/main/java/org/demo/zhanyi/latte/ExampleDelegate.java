@@ -54,7 +54,7 @@ public class ExampleDelegate extends LatteDelegate {
     //TODO:测试方法
     public void testResetClient() {
         RestClient.builder()
-                .url("http://192.168.0.105/index")
+                .url("http://127.0.0.1/index")
                 .loader(getContext())
                 .params("", "")
                 .success(new ISuccess() {
