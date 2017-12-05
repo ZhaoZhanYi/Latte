@@ -1,17 +1,40 @@
 {
-  "data": {
-    "imageUrl": "http://image.png",
-    "text": "I Love You",
-    "spanSize": "2",
-    "goodsId": "520",
-    "banners": [
-      "http://1.png",
-      "http://2.png",
-      "http://3.png"
-    ]
+  "code": 0,
+  "message": "OK",
+  "total": 100,
+  "page_size": 6,
+  "data": [
+    {
+      "imageUrl": "http://image.png",
+      "text": "I Love You",
+      "spanSize": "2",
+      "goodsId": "520",
+      "banners": [
+        "http://1.png",
+        "http://2.png",
+        "http://3.png"
+      ]
+    },
+    {
+      "goodsId": 1,
+      "text": "测试描述1",
+      "imageUrl": "",
+      "spanSize": 4
+    },
+    {
+      "goodsId": 2,
+      "text": "测试描述2",
+      "imageUrl": "",
+      "spanSize": 2
+    },
+    {
+      "goodsId": 3,
+      "text": "测试描述3",
+      "imageUrl": "",
+      "spanSize": 2
+    }
 
-
-  }
+  ]
 
 
 }

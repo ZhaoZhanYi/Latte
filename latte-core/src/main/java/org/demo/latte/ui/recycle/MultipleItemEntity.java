@@ -36,7 +36,7 @@ public class MultipleItemEntity implements MultiItemEntity {
         return (T) FILEDS_REFERENCE.get().get(key);
     }
 
-    public final LinkedHashMap<?, ?> getFileds() {
+    public final LinkedHashMap<?, ?> getFields() {
         return FILEDS_REFERENCE.get();
     }
 

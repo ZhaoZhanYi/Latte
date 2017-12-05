@@ -31,12 +31,22 @@ public class IndexDelegate extends BottomItemDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        initRefreshLayout();
         RefreshHandler refreshHandler = new RefreshHandler(mRefreshLayout);
         refreshHandler.onRefresh();
     }
 
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        initRefreshLayout();
+    }
+
     private void initRefreshLayout() {
-        mRefreshLayout.setProgressViewOffset(true, 200, 300);
+        mRefreshLayout.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light
+        );
+        mRefreshLayout.setProgressViewOffset(true, 120, 300);
     }
 }
