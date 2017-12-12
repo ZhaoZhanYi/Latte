@@ -5,32 +5,32 @@
   "page_size": 6,
   "data": [
     {
-      "imageUrl": "http://image.png",
+      "imageUrl": "http://g.hiphotos.baidu.com/image/pic/item/503d269759ee3d6d7b2b4e2549166d224e4ade6b.jpg",
       "text": "I Love You",
       "spanSize": "2",
       "goodsId": "520",
       "banners": [
-        "http://1.png",
-        "http://2.png",
-        "http://3.png"
+        "http://g.hiphotos.baidu.com/baike/pic/item/9345d688d43f8794c2751d82d81b0ef41ad53a97.jpg",
+        "http://e.hiphotos.baidu.com/image/pic/item/d788d43f8794a4c2c16ed9c004f41bd5ac6e398f.jpg",
+        "http://img0.ph.126.net/dVi-W-S9ZxSUT7rGTHr82w==/6630649951283189577.jpg"
       ]
     },
     {
       "goodsId": 1,
       "text": "测试描述1",
-      "imageUrl": "",
+      "imageUrl": "http://i1.hdslb.com/bfs/archive/021a5f7c9e74b097ca5b087415915f362f73e21e.jpg",
       "spanSize": 4
     },
     {
       "goodsId": 2,
       "text": "测试描述2",
-      "imageUrl": "",
+      "imageUrl": "http://img.scol.com.cn/20170123/59/16050204686654617111.jpg",
       "spanSize": 2
     },
     {
       "goodsId": 3,
       "text": "测试描述3",
-      "imageUrl": "",
+      "imageUrl": "http://img3.imgtn.bdimg.com/it/u=1992285311,2946007928&fm=27&gp=0.jpg",
       "spanSize": 2
     }
 
