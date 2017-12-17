@@ -1,6 +1,8 @@
 package org.demo.latte.ui.recycle;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -28,8 +30,11 @@ public class MultipleRecycleAdapter extends
 
     private boolean mIsInitBanner = false;
 
+//    List<MultipleItemEntity> mData;
+
     public MultipleRecycleAdapter(List<MultipleItemEntity> data) {
         super(data);
+//        mData = data;
         init();
     }
 
@@ -64,13 +69,16 @@ public class MultipleRecycleAdapter extends
         final String text;
         final String imageUrl;
         final ArrayList<String> bannerImages;
+        Log.i("===adapter convert==", holder.getItemViewType() + "");
         switch (holder.getItemViewType()) {
             case ItemType.TEXT:
                 text = entity.getField(MultipleFields.TEXT);
+                Log.i("===TEXT", text);
                 holder.setText(R.id.text_single, text);
                 break;
             case ItemType.IMAGE:
                 imageUrl = entity.getField(MultipleFields.IMAGE_URL);
+                Log.i("===IMAGE", imageUrl);
                 Glide.with(mContext)
                         .load(imageUrl)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -81,6 +89,7 @@ public class MultipleRecycleAdapter extends
             case ItemType.TEXT_IMAGE:
                 text = entity.getField(MultipleFields.TEXT);
                 imageUrl = entity.getField(MultipleFields.IMAGE_URL);
+                Log.i("===TEXT_IMAGE", text + " : " + imageUrl);
                 holder.setText(R.id.tv_multiple, text);
                 Glide.with(mContext)
                         .load(imageUrl)
@@ -90,6 +99,8 @@ public class MultipleRecycleAdapter extends
                         .into((ImageView) holder.getView(R.id.img_multiple));
                 break;
             case ItemType.BANNER:
+                Log.i("===BANNER", "");
+
                 if (!mIsInitBanner) {
                     bannerImages = entity.getField(MultipleFields.BANNERS);
                     final ConvenientBanner<String> convenientBanner = holder.getView(R.id.banner_recycler_item);
@@ -98,14 +109,18 @@ public class MultipleRecycleAdapter extends
                 }
                 break;
             default:
+                Log.i("===default", "");
+
                 break;
         }
     }
 
     @Override
     public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
+        Log.i("getSpanSize", position + "");
         return getData().get(position).getField(MultipleFields.SPAN_SIZE);
     }
+
 
     @Override
     public void onItemClick(int i) {

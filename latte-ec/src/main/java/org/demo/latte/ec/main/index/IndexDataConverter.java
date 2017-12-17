@@ -1,5 +1,7 @@
 package org.demo.latte.ec.main.index;
 
+import android.util.Log;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -29,6 +31,14 @@ public class IndexDataConverter extends DataConverter {
             final int id = data.getInteger("goodsId");
             final JSONArray banners = data.getJSONArray("banners");
 
+            Log.i("imageUrl", imageUrl);
+            Log.i("text", text);
+            Log.i("spanSize", spanSize + "");
+            Log.i("goodsId", id + "");
+
+
+            Log.i("banners is", banners == null ? "null" : "not null");
+
             final ArrayList<String> bannerImages = new ArrayList<>();
 
             int type = 0;
@@ -39,18 +49,21 @@ public class IndexDataConverter extends DataConverter {
                 type = ItemType.IMAGE;
             } else if (imageUrl != null) {
                 type = ItemType.TEXT_IMAGE;
-            } else if (banners != null) {
+            }
+
+            if (banners != null) {
                 type = ItemType.BANNER;
                 //banner初始化
                 final int bannerSize = banners.size();
                 for (int j = 0; j < bannerSize; j++) {
                     final String banner = banners.getString(j);
                     bannerImages.add(banner);
+                    Log.i("banner", banner + "");
                 }
             }
 
             MultipleItemEntity entity = MultipleItemEntity.builder()
-                    .setField(MultipleFields.ITEM_TYPE, type)
+                    .setItemType(type)
                     .setField(MultipleFields.SPAN_SIZE, spanSize)
                     .setField(MultipleFields.ID, id)
                     .setField(MultipleFields.TEXT, text)
@@ -62,7 +75,7 @@ public class IndexDataConverter extends DataConverter {
 
         }
 
-        return null;
+        return ENTITIES;
     }
 
 

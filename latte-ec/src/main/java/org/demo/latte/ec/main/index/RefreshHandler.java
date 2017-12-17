@@ -85,7 +85,9 @@ public class RefreshHandler implements
                                 .setPageSize(object.getInteger("page_size"));
                         //设置Adapter
                         mAdapter = MultipleRecycleAdapter.create(converter.setJsonData(response));
-                        mAdapter.setOnLoadMoreListener(RefreshHandler.this, mRecyclerView);
+//                        mAdapter.setOnLoadMoreListener(RefreshHandler.this, mRecyclerView);
+                        Log.i("onSuccess01", (mAdapter == null ? true : false) + "");
+                        Log.i("onSuccess02", mRecyclerView.hashCode() + "");
                         mRecyclerView.setAdapter(mAdapter);
                         BEAN.addIndex();
                     }
