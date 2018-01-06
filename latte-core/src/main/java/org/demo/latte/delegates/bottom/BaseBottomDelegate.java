@@ -29,10 +29,13 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 public abstract class BaseBottomDelegate extends LatteDelegate implements View.OnClickListener {
 
+    // 底部菜单bean
     private final ArrayList<BottomTabBean> TAB_BEANS = new ArrayList<>();
 
+    // 底部菜单的delegate
     private final ArrayList<BottomItemDelegate> ITEM_DELEGATES = new ArrayList<>();
 
+    // 底部菜单的item
     private final LinkedHashMap<BottomTabBean, BottomItemDelegate> ITEMS = new LinkedHashMap<>();
 
     // 表示当前是哪一个 delegate
@@ -41,15 +44,29 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
     // 表示第一个展示的 delegate
     private int mIndexDelegate = 0;
 
+    // 默认点击的颜色
     private int mClickedColor = Color.RED;
 
     @BindView(R2.id.bottom_bar)
     LinearLayoutCompat mBottomBar;
 
+    /**
+     * 添加底部菜单的item
+     * @param builder
+     * @return
+     */
     public abstract LinkedHashMap<BottomTabBean, BottomItemDelegate> setItems(ItemBuilder builder);
 
+    /**
+     * 设置底部菜单初始显示下标
+     * @return
+     */
     public abstract int setIndexDelegate();
 
+    /**
+     * 设置点击的颜色
+     * @return
+     */
     @ColorInt
     public abstract int setClickedColor();
 
@@ -90,12 +107,15 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
 //            设置每一个item的点击事件
             item.setTag(i);
             item.setOnClickListener(this);
+
             final IconTextView itemIcon = (IconTextView) item.getChildAt(0);
             final AppCompatTextView itemTitle = (AppCompatTextView) item.getChildAt(1);
             final BottomTabBean bean = TAB_BEANS.get(i);
 
-            //初始化数组
+            // 填充图标
             itemIcon.setText(bean.getIcon());
+
+            // 填充标题
             itemTitle.setText(bean.getTitle());
 
             // 设置第一次展示的item文字图标高亮
@@ -112,33 +132,32 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
         loadMultipleRootFragment(R.id.bottom_bar_delegate_container, mIndexDelegate, delegateArray);
     }
 
-    private void resetColor() {
-        final int count = mBottomBar.getChildCount();
-        for (int i = 0; i < count; i++) {
-            final RelativeLayout item = (RelativeLayout) mBottomBar.getChildAt(i);
-            final IconTextView itemIcon = (IconTextView) item.getChildAt(0);
-            final AppCompatTextView itemTitle = (AppCompatTextView) item.getChildAt(1);
-
-            itemIcon.setTextColor(Color.GRAY);
-            itemTitle.setTextColor(Color.GRAY);
-
-        }
-
-    }
-
     @Override
     public void onClick(View v) {
-        final int tag = (int) v.getTag();
         resetColor();
+        final int tag = (int) v.getTag();
         final RelativeLayout item = (RelativeLayout) v;
         final IconTextView itemIcon = (IconTextView) item.getChildAt(0);
         final AppCompatTextView itemTitle = (AppCompatTextView) item.getChildAt(1);
-
         itemIcon.setTextColor(mClickedColor);
         itemTitle.setTextColor(mClickedColor);
 
         // 第一个参数是要显示的fragment，第二个参数是要隐藏的fragment
         showHideFragment(ITEM_DELEGATES.get(tag), ITEM_DELEGATES.get(mCurrentDelegate));
         mCurrentDelegate = tag;
+    }
+
+    /**
+     * 重置底部菜单的颜色
+     */
+    private void resetColor() {
+        final int count = mBottomBar.getChildCount();
+        for (int i = 0; i < count; i++) {
+            final RelativeLayout item = (RelativeLayout) mBottomBar.getChildAt(i);
+            final IconTextView itemIcon = (IconTextView) item.getChildAt(0);
+            final AppCompatTextView itemTitle = (AppCompatTextView) item.getChildAt(1);
+            itemIcon.setTextColor(Color.GRAY);
+            itemTitle.setTextColor(Color.GRAY);
+        }
     }
 }
