@@ -15,6 +15,7 @@ import android.widget.TextView;
 import org.demo.latte.delegates.bottom.BottomItemDelegate;
 import org.demo.latte.ec.R;
 import org.demo.latte.ec.R2;
+import org.demo.latte.ec.main.EcBottomDelegate;
 import org.demo.latte.ui.recycle.DividerDecoration;
 import org.demo.latte.ui.recycle.MultipleFields;
 import org.demo.latte.ui.recycle.MultipleItemEntity;
@@ -78,5 +79,8 @@ public class IndexDelegate extends BottomItemDelegate {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.addItemDecoration(
                 new DividerDecoration(ContextCompat.getColor(getContext(), R.color.divider), 5));
+        EcBottomDelegate ecBottomDelegate = getParentDelegate();
+//        mRecyclerView.setRecyclerListener(IndexItemClickListener.create(ecBottomDelegate));
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
     }
 }

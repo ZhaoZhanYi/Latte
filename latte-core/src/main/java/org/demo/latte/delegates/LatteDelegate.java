@@ -5,4 +5,8 @@ package org.demo.latte.delegates;
  */
 
 public abstract class LatteDelegate extends PermissionCheckerDelegate {
+
+    public <T> T getParentDelegate() {
+        return (T) getParentFragment();
+    }
 }

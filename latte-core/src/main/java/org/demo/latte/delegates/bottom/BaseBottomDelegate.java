@@ -47,6 +47,7 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
     // 默认点击的颜色
     private int mClickedColor = Color.RED;
 
+    // 底部菜单布局
     @BindView(R2.id.bottom_bar)
     LinearLayoutCompat mBottomBar;
 
@@ -78,7 +79,9 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 初始化默认显示下标
         mIndexDelegate = setIndexDelegate();
+        // 初始化选中颜色
         if (setClickedColor() != 0) {
             mClickedColor = setClickedColor();
         }
@@ -142,7 +145,7 @@ public abstract class BaseBottomDelegate extends LatteDelegate implements View.O
         itemIcon.setTextColor(mClickedColor);
         itemTitle.setTextColor(mClickedColor);
 
-        // 第一个参数是要显示的fragment，第二个参数是要隐藏的fragment
+        // 显示选中菜单的delegate，第一个参数是要显示的fragment，第二个参数是要隐藏的fragment
         showHideFragment(ITEM_DELEGATES.get(tag), ITEM_DELEGATES.get(mCurrentDelegate));
         mCurrentDelegate = tag;
     }
