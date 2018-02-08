@@ -47,6 +47,9 @@ public class SignInDelegate extends LatteDelegate {
 
     }
 
+    /**
+     * 登录响应事件
+     */
     @OnClick(R2.id.btn_sign_in)
     void onClickSignIn() {
         if (checkForm()) {
@@ -69,11 +72,17 @@ public class SignInDelegate extends LatteDelegate {
         }
     }
 
+    /**
+     * 注册页面响应事件
+     */
     @OnClick(R2.id.tv_link_sign_up)
     void onClickLinkSignUp() {
         start(new SignUpDelegate());
     }
 
+    /**
+     * 微信登录响应事件
+     */
     @OnClick(R2.id.icon_sigh_in_wechat)
     void onClickWeChat() {
         LatteWeChat.getInstance().onSignInCallback(new IWeChatSignInCallback() {
@@ -84,6 +93,10 @@ public class SignInDelegate extends LatteDelegate {
         }).signIn();
     }
 
+    /**
+     * 检测邮箱和密码的格式
+     * @return
+     */
     private boolean checkForm() {
         final String email = mEmail.getText().toString();
         final String password = mPassword.getText().toString();

@@ -5,5 +5,7 @@ package org.demo.latte.ec.launcher;
  */
 
 public enum ScrollLauncherTag {
+
+    // 第一次启动app标记
     HAS_FIRST_LAUNCHER_APP
 }

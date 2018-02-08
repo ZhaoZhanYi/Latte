@@ -9,7 +9,6 @@ import org.demo.latte.activities.ProxyActivity;
 import org.demo.latte.app.Latte;
 import org.demo.latte.delegates.LatteDelegate;
 import org.demo.latte.ec.launcher.LauncherDelegate;
-import org.demo.latte.ec.launcher.LauncherScrollDelegate;
 import org.demo.latte.ec.main.EcBottomDelegate;
 import org.demo.latte.ec.sign.ISignListener;
 import org.demo.latte.ec.sign.SignInDelegate;

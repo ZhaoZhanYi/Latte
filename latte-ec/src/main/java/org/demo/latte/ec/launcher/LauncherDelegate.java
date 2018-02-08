@@ -26,6 +26,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
+ * 启动页
  * Created by zhanyi on 2017/10/16.
  */
 
@@ -49,12 +50,6 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     private Timer mTimer = null;
 
-    private void initTimer() {
-        mTimer = new Timer();
-        final BaseTimerTask task = new BaseTimerTask(this);
-        mTimer.schedule(task, 0, 1000);
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -71,6 +66,39 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         initTimer();
+    }
+
+    private void initTimer() {
+        mTimer = new Timer();
+        final BaseTimerTask task = new BaseTimerTask(this);
+        // task 任务， 0 立即执行， 1000 1秒间隔
+        mTimer.schedule(task, 0, 1000);
+    }
+
+    /**
+     * 该页面实现 ITimerListener 接口，为执行的任务内容
+     */
+    @Override
+    public void onTimer() {
+        getProxyActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mTvTimer != null) {
+                    mTvTimer.setText(MessageFormat.format(("跳过\n{0}s"), mCount));
+                    mCount--;
+
+                    //5 次之后跳转
+                    if (mCount < 0) {
+                        if (mTimer != null) {
+                            mTimer.cancel();
+                            mTimer = null;
+//                            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
+                            checkIsShowScroll();
+                        }
+                    }
+                }
+            }
+        });
     }
 
     /**
@@ -102,26 +130,5 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
         }
     }
 
-    @Override
-    public void onTimer() {
-        getProxyActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (mTvTimer != null) {
-                    mTvTimer.setText(MessageFormat.format(("跳过\n{0}s"), mCount));
-                    mCount--;
 
-                    //5 次之后跳转
-                    if (mCount < 0) {
-                        if (mTimer != null) {
-                            mTimer.cancel();
-                            mTimer = null;
-//                            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
-                            checkIsShowScroll();
-                        }
-                    }
-                }
-            }
-        });
-    }
 }

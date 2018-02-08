@@ -37,6 +37,17 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
         }
     }
 
+    @Override
+    public Object setLayout() {
+        mConven = new ConvenientBanner<Integer>(getContext());
+        return mConven;
+    }
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
+        initBanner();
+    }
+
     private void initBanner() {
         INTEGERS.add(R.mipmap.launcher_01);
         INTEGERS.add(R.mipmap.launcher_02);
@@ -48,17 +59,6 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
                 .setOnItemClickListener(this)
                 .setCanLoop(true);
-    }
-
-    @Override
-    public Object setLayout() {
-        mConven = new ConvenientBanner<Integer>(getContext());
-        return mConven;
-    }
-
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-        initBanner();
     }
 
     @Override
