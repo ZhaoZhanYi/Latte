@@ -72,9 +72,9 @@ dependencies {
     //图片处理
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+    //    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
     //状态栏颜色渐变
-    compile ('com.github.niorgai:StatusBarCompat:2.1.4', {
+    compile('com.github.niorgai:StatusBarCompat:2.1.4', {
         exclude group: 'com.android.support'
     })
 

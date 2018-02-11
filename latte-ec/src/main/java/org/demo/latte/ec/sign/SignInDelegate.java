@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
+ *
  * Created by ZZL on 2017/10/25.
  */
 
@@ -36,7 +37,7 @@ public class SignInDelegate extends LatteDelegate {
 
     /**
      * 登录和注册是App唯一的一个入口，不需要分散到各个delegate中去处理
-     * @param activity
+     * @param activity 加载delegate的activity
      */
     @Override
     public void onAttach(Activity activity) {
@@ -44,7 +45,6 @@ public class SignInDelegate extends LatteDelegate {
         if (activity instanceof ISignListener) {
             mISignListener = (ISignListener) activity;
         }
-
     }
 
     /**
@@ -95,7 +95,7 @@ public class SignInDelegate extends LatteDelegate {
 
     /**
      * 检测邮箱和密码的格式
-     * @return
+     * @return boolean true 通过验证，false 未通过验证
      */
     private boolean checkForm() {
         final String email = mEmail.getText().toString();

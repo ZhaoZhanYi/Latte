@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -89,10 +90,11 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
                     //5 次之后跳转
                     if (mCount < 0) {
+                        Log.d("onTimer", mCount + "");
                         if (mTimer != null) {
                             mTimer.cancel();
                             mTimer = null;
-//                            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "跳转", Toast.LENGTH_SHORT).show();
                             checkIsShowScroll();
                         }
                     }
@@ -113,6 +115,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
             AccountManager.checkAccount(new IUserChecker() {
                 @Override
                 public void onSignIn() {
+                    Log.d("checkAccount", "onSignIn");
                     if (mILauncherListener != null) {
                         mILauncherListener.onLauncherFinish(OnLauncherFinishTag.SIGNED);
                     }
@@ -120,6 +123,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
                 @Override
                 public void onNotSignIn() {
+                    Log.d("checkAccount", "onNotSignIn");
                     if (mILauncherListener != null) {
                         mILauncherListener.onLauncherFinish(OnLauncherFinishTag.NOT_SIGNED);
                     }

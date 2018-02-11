@@ -64,22 +64,22 @@ public class LatteProcessor extends AbstractProcessor {
     }
 
     private void scan(RoundEnvironment env, Class<? extends Annotation> annotation, AnnotationValueVisitor visitor) {
-        //遍历给定注解类型的元素，
+
         System.out.printf("===scan===" + annotation.getCanonicalName() + "\n");
         for (Element typeElement : env.getElementsAnnotatedWith(annotation)) {
             System.out.printf("===scan1===" + typeElement.getSimpleName() + "\n");
 
-            //获得此元素上的所有注解
+
             final List<? extends AnnotationMirror> annotationMirrors = typeElement.getAnnotationMirrors();
-            //遍历每一个注解，注解包括注解的类型和注解元素的值
+
             for (AnnotationMirror annotationMirror : annotationMirrors) {
                 System.out.printf("===scan2===" + annotationMirror.toString() + "\n");
 
-                //获取注解元素的值
+
                 final Map<? extends ExecutableElement, ? extends AnnotationValue> elementValues
                         = annotationMirror.getElementValues();
 
-                //
+
                 for (Map.Entry<? extends  ExecutableElement, ? extends AnnotationValue>
                         entry : elementValues.entrySet() ) {
                     System.out.printf("===scan3===" + entry.getValue().toString() + "\n");
