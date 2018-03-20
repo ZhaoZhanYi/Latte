@@ -28,6 +28,7 @@ public class ExampleApp extends Application {
                 .withApiHost("http://127.0.0.1")
                 .withInterceptor(new DebugInterceptor("indexdata", R.raw.indexdata))
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
+                .withInterceptor(new DebugInterceptor("sort_menu", R.raw.sort_menu))
                 .withAppId("")
                 .withAppSecret("")
                 .configure();

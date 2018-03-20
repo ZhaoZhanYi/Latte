@@ -86,6 +86,7 @@ public class RestClient {
         return new RestClientBuilder();
     }
 
+    // 执行请求
     private void request(HttpMethod method) {
         final RestService service = RestCreator.getRestService();
         Call<String> call = null;
@@ -142,10 +143,12 @@ public class RestClient {
         );
     }
 
+    // 执行get请求
     public final void get() {
         request(HttpMethod.GET);
     }
 
+    // 执行post请求
     public final void post() {
         if (BODY == null) {
             request(HttpMethod.POST);

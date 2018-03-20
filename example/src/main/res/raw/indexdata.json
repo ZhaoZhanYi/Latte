@@ -5,32 +5,32 @@
   "page_size": 6,
   "data": [
     {
-      "imageUrl": "http://g.hiphotos.baidu.com/image/pic/item/503d269759ee3d6d7b2b4e2549166d224e4ade6b.jpg",
+      "imageUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3552940748,3474281997&fm=27&gp=0.jpg",
       "text": "I Love You",
       "spanSize": "4",
       "goodsId": "520",
       "banners": [
-        "http://g.hiphotos.baidu.com/baike/pic/item/9345d688d43f8794c2751d82d81b0ef41ad53a97.jpg",
-        "http://e.hiphotos.baidu.com/image/pic/item/d788d43f8794a4c2c16ed9c004f41bd5ac6e398f.jpg",
-        "http://img0.ph.126.net/dVi-W-S9ZxSUT7rGTHr82w==/6630649951283189577.jpg"
+        "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4201384826,577257134&fm=200&gp=0.jpg",
+        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520242963422&di=2d0bc195f11866a6def7ee02ab981701&imgtype=0&src=http%3A%2F%2Fpic.nipic.com%2F2008-03-22%2F200832216338855_2.jpg",
+        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520243223929&di=ee07c30b4ca80e8849ac5fd4f1c06a12&imgtype=0&src=http%3A%2F%2Fpic27.nipic.com%2F20130314%2F9252150_150118572000_2.jpg"
       ]
     },
     {
       "goodsId": 1,
       "text": "测试描述1",
-      "imageUrl": "http://i1.hdslb.com/bfs/archive/021a5f7c9e74b097ca5b087415915f362f73e21e.jpg",
+      "imageUrl": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2655186546,3018055653&fm=27&gp=0.jpg",
       "spanSize": 4
     },
     {
       "goodsId": 2,
       "text": "测试描述2",
-      "imageUrl": "http://img.scol.com.cn/20170123/59/16050204686654617111.jpg",
+      "imageUrl": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520242676480&di=66c39db4e6be62c866393cee4861a105&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2017%2F144%2F22%2FDEW43EQ3393T.jpg",
       "spanSize": 2
     },
     {
       "goodsId": 3,
       "text": "测试描述3",
-      "imageUrl": "http://img3.imgtn.bdimg.com/it/u=1992285311,2946007928&fm=27&gp=0.jpg",
+      "imageUrl": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520242963421&di=8945de5a35a85960f4d95daaebb96b94&imgtype=0&src=http%3A%2F%2Fpic34.photophoto.cn%2F20150127%2F0006019093196381_b.jpg",
       "spanSize": 2
     }
 
