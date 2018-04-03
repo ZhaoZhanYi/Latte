@@ -3,6 +3,7 @@ package org.demo.latte.ec.main.sort;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.ContentFrameLayout;
+import android.util.Log;
 import android.view.View;
 
 import org.demo.latte.delegates.bottom.BaseBottomDelegate;
@@ -17,7 +18,7 @@ import butterknife.BindView;
  */
 
 public class SortDelegate extends BottomItemDelegate {
-
+    private static final String TAG = "SortDelegate";
     // 左边菜单的容器
     @BindView(R2.id.cfl_menu_container)
     ContentFrameLayout mMenuContainer;
@@ -40,7 +41,7 @@ public class SortDelegate extends BottomItemDelegate {
         super.onLazyInitView(savedInstanceState);
         final MenuDelegate menuDelegate = new MenuDelegate();
         final ContentDelegate contentDelegate = new ContentDelegate();
-
+        Log.d(TAG, "onLazyInitView");
 //        加载菜单item
         loadRootFragment(R.id.cfl_menu_container, menuDelegate);
 

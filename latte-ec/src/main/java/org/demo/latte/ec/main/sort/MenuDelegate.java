@@ -2,6 +2,7 @@ package org.demo.latte.ec.main.sort;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -25,8 +26,10 @@ public class MenuDelegate extends LatteDelegate {
 
     private static final String TAG = "MenuDelegate";
 
+
+
     @BindView(R2.id.lv_menu_list)
-    ListView mMenuList;
+    RecyclerView mMenuList;
 
     @Override
     public Object setLayout() {
@@ -52,6 +55,7 @@ public class MenuDelegate extends LatteDelegate {
                     @Override
                     public void onSuccess(String response) {
                         Log.d(TAG, "request on success : " + response);
+//                        mMenuList.setAdapter();
                     }
                 })
                 .failure(new IFailure() {

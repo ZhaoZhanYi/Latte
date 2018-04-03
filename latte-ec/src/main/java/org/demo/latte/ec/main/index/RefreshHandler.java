@@ -69,7 +69,6 @@ public class RefreshHandler implements
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         }, 2000);
-
     }
 
     public void firstPage(String url) {
