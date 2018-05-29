@@ -86,8 +86,8 @@ public class MenuDelegate extends LatteDelegate {
                             LinearLayoutManager manager = new LinearLayoutManager(getContext());
                             mMenuRecyclerView.setLayoutManager(manager);
 
-                            SortAdapter adapter = new SortAdapter(R.layout.item_sort_menu_list, listItems);
-                            mMenuRecyclerView.setAdapter(adapter);
+//                            SortAdapter adapter = new SortAdapter(R.layout.item_sort_menu_list, listItems);
+//                            mMenuRecyclerView.setAdapter(adapter);
                         }
                     }
                 })
