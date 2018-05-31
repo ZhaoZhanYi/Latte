@@ -4,7 +4,7 @@ apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         minSdkVersion 15
@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':latte-core')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':latte-core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }
