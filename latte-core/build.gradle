@@ -26,56 +26,58 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'com.android.support:appcompat-v7:25.3.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    api 'com.android.support:appcompat-v7:25.3.1'
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
-    implementation project(':latte-annotations')
+    api project(':latte-annotations')
     //字体图标
-    implementation 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
-    implementation 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
+    api 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
+    api 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
     //Fragment依赖
-    implementation 'me.yokeyword:fragmentation:1.1.3'
-    implementation 'me.yokeyword:fragmentation-swipeback:1.1.3'
+    api 'me.yokeyword:fragmentation:1.1.3'
+    api 'me.yokeyword:fragmentation-swipeback:1.1.3'
     //ButtonKnife依赖
-    implementation 'com.jakewharton:butterknife:8.8.1'
+    api 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //网络请求依赖
-    implementation 'com.squareup.okio:okio:1.13.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
-    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    api 'com.squareup.okio:okio:1.13.0'
+    api 'com.squareup.okhttp3:okhttp:3.8.1'
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.3.0'
     //Loading加载动画
-    implementation 'com.wang.avi:library:2.1.3'
+    api 'com.wang.avi:library:2.1.3'
     //RxJava
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.5'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    api 'io.reactivex.rxjava2:rxjava:2.1.5'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     //Banner
-    implementation 'com.bigkoo:convenientbanner:2.0.5'
-    implementation 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+    api 'com.bigkoo:convenientbanner:2.0.5'
+    api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     //JSON解析
-    implementation 'com.alibaba:fastjson:1.1.57.android'
+    api 'com.alibaba:fastjson:1.1.57.android'
     //Android Support 包
-    implementation 'com.android.support:design:25.3.1'
-    implementation 'com.android.support:support-v4:25.3.1'
+    api 'com.android.support:design:25.3.1'
+    api 'com.android.support:support-v4:25.3.1'
     //greendao SQLite数据库操作库
-    implementation 'org.greenrobot:greendao-generator:3.2.2'
-    implementation 'org.greenrobot:greendao:3.2.2'
+    api 'org.greenrobot:greendao-generator:3.2.2'
+    api 'org.greenrobot:greendao:3.2.2'
     //日志库
-    implementation 'com.orhanobut:logger:2.1.1'
+    api 'com.orhanobut:logger:2.1.1'
     //微信
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     //recycleView 依赖
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:+'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:+'
     //recyclerView 分割线
-    implementation 'com.choices.divider:RecyclerView_Divider:1.0.0'
+    api 'com.choices.divider:RecyclerView_Divider:1.0.0'
     //图片处理
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    api 'com.github.bumptech.glide:glide:3.7.0'
+    api 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
     //    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
     //状态栏颜色渐变
-    implementation('com.github.niorgai:StatusBarCompat:2.1.4', {
+    api('com.github.niorgai:StatusBarCompat:2.1.4', {
         exclude group: 'com.android.support'
     })
+    // 圆形imageview
+    api 'de.hdodenhof:circleimageview:2.2.0'
 
 }
