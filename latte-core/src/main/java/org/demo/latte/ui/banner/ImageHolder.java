@@ -8,30 +8,36 @@ import android.view.View;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+
+import org.demo.latte.app.Latte;
 
 
 /**
  * Created by zzl on 2017/12/5.
  */
 
-public class ImageHolder implements Holder<String> {
+public class ImageHolder extends Holder<String> {
 
-    private AppCompatImageView mImageView = null;
+    private AppCompatImageView mImageView;
+
+    private RequestOptions mRequestOptions = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL).dontAnimate().centerCrop();
 
 
-    @Override
-    public View createView(Context context) {
-        mImageView = new AppCompatImageView(context);
-        return mImageView;
+    public ImageHolder(View itemView) {
+        super(itemView);
     }
 
     @Override
-    public void UpdateUI(Context context, int position, String data) {
-        Glide.with(context)
+    protected void initView(View itemView) {
+        mImageView = (AppCompatImageView) itemView;
+    }
+
+    @Override
+    public void updateUI(String data) {
+        Glide.with(Latte.getApplicationContext())
                 .load(data)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
-                .centerCrop()
+                .apply(mRequestOptions)
                 .into(mImageView);
     }
 }

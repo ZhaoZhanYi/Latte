@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideOption;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
@@ -30,6 +32,7 @@ public class MultipleRecycleAdapter extends
 
     private boolean mIsInitBanner = false;
 
+    private RequestOptions mRequestOptions = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL).dontAnimate().centerCrop();
 //    List<MultipleItemEntity> mData;
 
     public MultipleRecycleAdapter(List<MultipleItemEntity> data) {
@@ -81,9 +84,7 @@ public class MultipleRecycleAdapter extends
                 Log.i("===IMAGE", imageUrl);
                 Glide.with(mContext)
                         .load(imageUrl)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .dontAnimate()
-                        .centerCrop()
+                        .apply(mRequestOptions)
                         .into((ImageView) holder.getView(R.id.img_single));
                 break;
             case ItemType.TEXT_IMAGE:
@@ -93,9 +94,7 @@ public class MultipleRecycleAdapter extends
                 holder.setText(R.id.tv_multiple, text);
                 Glide.with(mContext)
                         .load(imageUrl)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .dontAnimate()
-                        .centerCrop()
+                        .apply(mRequestOptions)
                         .into((ImageView) holder.getView(R.id.img_multiple));
                 break;
             case ItemType.BANNER:

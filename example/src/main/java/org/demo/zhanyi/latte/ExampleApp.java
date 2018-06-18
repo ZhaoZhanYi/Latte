@@ -29,6 +29,7 @@ public class ExampleApp extends Application {
                 .withInterceptor(new DebugInterceptor("indexdata", R.raw.indexdata))
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .withInterceptor(new DebugInterceptor("sort_menu", R.raw.sort_menu))
+                .withInterceptor(new DebugInterceptor("order_list", R.raw.order_list))
                 .withAppId("")
                 .withAppSecret("")
                 .configure();

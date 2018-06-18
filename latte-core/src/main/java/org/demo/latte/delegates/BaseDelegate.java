@@ -11,7 +11,6 @@ import org.demo.latte.activities.ProxyActivity;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
-
 /**
  * Created by feibai on 2017/9/5.
  */

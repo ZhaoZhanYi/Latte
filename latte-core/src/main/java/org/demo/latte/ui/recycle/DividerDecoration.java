@@ -1,10 +1,6 @@
 package org.demo.latte.ui.recycle;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
 
 import com.choices.divider.Divider;
 import com.choices.divider.DividerItemDecoration;
@@ -13,7 +9,7 @@ import com.choices.divider.DividerItemDecoration;
  * Created by zzl on 2017/12/17.
  */
 
-public class DividerDecoration extends DividerItemDecoration {
+public class DividerDecoration extends DividerItemDecoration{
 
     public DividerDecoration(@ColorInt int color, int size) {
         setDividerLookup(new DividerLookup(color, size));

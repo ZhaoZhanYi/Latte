@@ -18,7 +18,7 @@ public class BannerCreator {
         convenientBanner.setPages(new HolderCreator(), banners)
 //                .setPageIndicator(new int[] {})
                     .setOnItemClickListener(clickListener)
-                .setPageTransformer(new DefaultTransformer())
+//                .setPageTransformer(new DefaultTransformer())
                 .startTurning(3000)
                 .setCanLoop(true);
     }

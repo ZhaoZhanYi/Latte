@@ -5,25 +5,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import org.demo.latte.delegates.bottom.BottomItemDelegate;
 import org.demo.latte.ec.R;
 import org.demo.latte.ec.R2;
 import org.demo.latte.ec.main.EcBottomDelegate;
 import org.demo.latte.ui.recycle.DividerDecoration;
-import org.demo.latte.ui.recycle.MultipleFields;
-import org.demo.latte.ui.recycle.MultipleItemEntity;
-import org.demo.latte.ui.recycle.MultipleRecycleAdapter;
 import org.demo.latte.ui.refresh.PagingBean;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 
@@ -77,8 +68,8 @@ public class IndexDelegate extends BottomItemDelegate {
     private void initRecycleView() {
         final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
         mRecyclerView.setLayoutManager(manager);
-        mRecyclerView.addItemDecoration(
-                new DividerDecoration(ContextCompat.getColor(getContext(), R.color.divider), 5));
+//        mRecyclerView.addItemDecoration(
+//                new DividerDecoration(ContextCompat.getColor(getContext(), R.color.divider), 5));
         EcBottomDelegate ecBottomDelegate = getParentDelegate();
 //        mRecyclerView.setRecyclerListener(IndexItemClickListener.create(ecBottomDelegate));
         mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
